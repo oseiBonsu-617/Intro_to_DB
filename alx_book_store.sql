@@ -3,13 +3,13 @@ CREATE DATABASE IF NOT EXISTS alx_book_store;
 USE alx_book_store;
 
 
-CREATE TABLE `author` (
+CREATE TABLE `Authors` (
 	`author_id` INT PRIMARY KEY NOT NULL,
     `author_name` VARCHAR(215)
 );
 
 
-CREATE TABLE `books` (
+CREATE TABLE `Books` (
 	`book_id` INT PRIMARY KEY NOT NULL,
     `title` VARCHAR(130),
     `author_id` INT NOT NULL,
@@ -19,14 +19,14 @@ CREATE TABLE `books` (
     CONSTRAINT `fk_books_author` FOREIGN KEY (`author_id`) REFERENCES `author` (`author_id`) ON UPDATE CASCADE
 );
 
-CREATE TABLE `customers` (
+CREATE TABLE `Customers` (
 	`customer_id` INT PRIMARY KEY NOT NULL,
     `customer_name` VARCHAR(215),
     `email` VARCHAR(215),
     `address` TEXT
 );
 
-CREATE TABLE `orders` (
+CREATE TABLE `Orders` (
 	`order_id` INT PRIMARY KEY,
     `customer_id` INT NOT NULL,
     `order_date` DATE,
@@ -35,7 +35,7 @@ CREATE TABLE `orders` (
 );
 
 
-CREATE TABLE `order_details` (
+CREATE TABLE `Order_details` (
 	`order_id` INT NOT NULL,
     `book_id` INT NOT NULL,
     `quantity` DOUBLE,
