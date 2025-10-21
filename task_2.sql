@@ -1,0 +1,46 @@
+DROP DATABASE IF EXISTS alx_book_store;
+CREATE DATABASE IF NOT EXISTS alx_book_store;
+USE alx_book_store;
+
+
+CREATE TABLE `Authors` (
+	`author_id ` INT PRIMARY KEY NOT NULL,
+    `author_name` VARCHAR(215)
+);
+
+
+CREATE TABLE `Books` (
+	`book_id` INT PRIMARY KEY NOT NULL,
+    `title` VARCHAR(130),
+    `author_id` INT NOT NULL,
+    `price` DOUBLE,
+    `publication_date` DATE,
+    KEY `fk_books_author_idx` (`author_id`),
+    CONSTRAINT `fk_books_author` FOREIGN KEY (`author_id`) REFERENCES `author` (`author_id`) ON UPDATE CASCADE
+);
+
+CREATE TABLE `Customers` (
+	`customer_id ` INT PRIMARY KEY NOT NULL,
+    "customer_name VARCHAR(215)",
+    "email VARCHAR(215)",
+    "address TEXT"
+);
+
+CREATE TABLE `Orders` (
+	"order_id INT",
+    "customer_id INT",
+    "order_date DATE",
+    KEY `fk_orders_customer_idx` (`customer_id`),
+    "FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)"
+);
+
+
+CREATE TABLE `Order_Details` (
+	`order_id` INT NOT NULL,
+    "book_id INT",
+    "quantity DOUBLE",
+    KEY `fk_order_details_order_idx` (`order_id`),
+    KEY `fk_order_details_book_idx` (`book_id`),
+    "FOREIGN KEY (order_id) REFERENCES Orders(order_id)",
+    "FOREIGN KEY (book_id) REFERENCES Books(book_id)"
+);
