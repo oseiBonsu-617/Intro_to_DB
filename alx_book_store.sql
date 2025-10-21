@@ -21,9 +21,9 @@ CREATE TABLE `Books` (
 
 CREATE TABLE `Customers` (
 	`customer_id ` INT PRIMARY KEY NOT NULL,
-    `customer_name` VARCHAR(215),
-    `email` VARCHAR(215),
-    `address` TEXT
+    "customer_name VARCHAR(215)",
+    "email VARCHAR(215)",
+    "address TEXT"
 );
 
 CREATE TABLE `Orders` (
