@@ -27,15 +27,15 @@ CREATE TABLE `Customers` (
 );
 
 CREATE TABLE `Orders` (
-	`order_id` INT PRIMARY KEY,
-    `customer_id` INT NOT NULL,
-    `order_date` DATE,
+	"order_id INT",
+    "customer_id INT",
+    "order_date DATE",
     KEY `fk_orders_customer_idx` (`customer_id`),
-    CONSTRAINT `fk_orders_customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON UPDATE CASCADE
+    "FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)"
 );
 
 
-CREATE TABLE `Order_details` (
+CREATE TABLE `Order_Details` (
 	`order_id` INT NOT NULL,
     `book_id` INT NOT NULL,
     `quantity` DOUBLE,
