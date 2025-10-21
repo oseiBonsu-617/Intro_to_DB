@@ -37,10 +37,10 @@ CREATE TABLE `Orders` (
 
 CREATE TABLE `Order_Details` (
 	`order_id` INT NOT NULL,
-    `book_id` INT NOT NULL,
-    `quantity` DOUBLE,
+    "book_id INT",
+    "quantity DOUBLE",
     KEY `fk_order_details_order_idx` (`order_id`),
     KEY `fk_order_details_book_idx` (`book_id`),
-    CONSTRAINT `fk_order_details_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON UPDATE CASCADE,
-    CONSTRAINT `fk_order_details_book` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`) ON UPDATE CASCADE
+    "FOREIGN KEY (order_id) REFERENCES Orders(order_id)",
+    "FOREIGN KEY (book_id) REFERENCES books(book_id)"
 );
