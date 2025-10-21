@@ -42,5 +42,5 @@ CREATE TABLE `Order_Details` (
     KEY `fk_order_details_order_idx` (`order_id`),
     KEY `fk_order_details_book_idx` (`book_id`),
     "FOREIGN KEY (order_id) REFERENCES Orders(order_id)",
-    "FOREIGN KEY (book_id) REFERENCES books(book_id)"
+    "FOREIGN KEY (book_id) REFERENCES Books(book_id)"
 );
